@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>News Aggregator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>News Aggregator</h1>
+        <input type="text" id="search" placeholder="Search articles..." />
+    </header>
+    <main>
+        <div id="no-results" style="display:none;">No articles found.</div>
+        <div id="articles" class="articles-container">
+            {% for article in articles %}
+                <div class="article-card">
+                    <a href="{{ article.URL }}" target="_blank">
+                        <h2>{{ article.Title }}</h2>
+                        <p class="summary">{{ article.Summary }}</p>
+                        <p class="date">{{ article['Publication Date'] }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 News Aggregator</p>
+    </footer>
+
+    <script src="static/script.js"></script>
+</body>
+</html>
