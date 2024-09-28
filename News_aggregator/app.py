@@ -1,8 +1,8 @@
 from flask import Flask, render_template, jsonify, request
-import requests
-from bs4 import BeautifulSoup
-import pandas as pd
-import nltk
+import requests 
+from bs4 import BeautifulSoup 
+import pandas as pd 
+import nltk 
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -43,6 +43,7 @@ def scrape_bbc():
 
     return articles
 
+
 # Function to update articles data
 def update_articles_data():
     bbc_articles = scrape_bbc()
@@ -60,6 +61,12 @@ df = pd.read_csv('news_articles.csv')
 def home():
     articles = df.to_dict(orient='records')  # Convert the DataFrame to a list of dictionaries
     return render_template('home.html', articles=articles)
+
+@app.route('/update', methods=['POST'])
+def update():
+    update_articles_data()
+    return jsonify({"message": "Articles updated successfully!"})
+
 
 # API Endpoint to retrieve all articles, with optional filtering by category
 @app.route('/articles', methods=['GET'])

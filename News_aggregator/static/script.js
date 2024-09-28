@@ -36,3 +36,10 @@ $(document).ready(function() {
 });
 
 
+$(document).ready(function() {
+    $('#update-articles').click(function() {
+        $.post('/update', function(response) {
+            alert(response.message);
+        });
+    });
+});

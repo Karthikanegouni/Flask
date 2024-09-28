@@ -13,6 +13,8 @@
         <input type="text" id="search" placeholder="Search articles..." />
     </header>
     <main>
+        <center> <br><br><button id="update-articles">Update Articles</button>
+            <br><br></center>
         <div id="no-results" style="display:none;">No articles found.</div>
         <div id="articles" class="articles-container">
             {% for article in articles %}
@@ -25,9 +27,14 @@
                 </div>
             {% endfor %}
         </div>
+       
+       
     </main>
     <footer>
-        <p>&copy; 2024 News Aggregator</p>
+        <p>&copy;News Aggregator</p>
+        <div class="foot_link"><p><a href="https://in.linkedin.com/in/anegouni-karthik-goud" id="link">Linkedin  </a></p>
+            <p><a href="https://github.com/Karthikanegouni/" id="link">Github</a></p></div>
+            
     </footer>
 
     <script src="static/script.js"></script>
